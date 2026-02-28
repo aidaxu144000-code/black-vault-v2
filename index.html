@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE BLACK VAULT · AIDA xU · RESTRICTED ACCESS</title>
 <meta name="robots" content="noindex, nofollow">
+<!-- CRITICAL: Set lang before CSS renders to prevent both languages showing -->
+<script>
+  (function(){
+    var s = localStorage.getItem('aida_vault_lang') || 'TH';
+    document.documentElement.setAttribute('data-lang', s);
+    document.documentElement.setAttribute('lang', s === 'TH' ? 'th' : 'en');
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -74,21 +82,27 @@ body::after{
 .lang-btn:hover:not(.active){color:var(--gold);border-color:rgba(201,168,76,0.5);}
 
 /* Visibility rules — identical to Hub v8 */
-[data-lang="TH"] .en-only  {display:none !important;}
-[data-lang="TH"] .en-inline{display:none !important;}
-[data-lang="EN"] .th-only  {display:none !important;}
-[data-lang="EN"] .th-inline{display:none !important;}
+/* Default: TH active, hide EN */
+.en-only   { display: none !important; }
+.en-inline { display: none !important; }
 
-/* Preserve display types */
-a.th-only,a.en-only,a.th-inline,a.en-inline{display:inline-block;}
-span.th-only,span.en-only,span.th-inline,span.en-inline{display:inline;}
-li.th-only,li.en-only{display:list-item;}
-p.th-only,p.en-only,
-div.th-only,div.en-only,
-blockquote.th-only,blockquote.en-only,
-h1.th-only,h1.en-only,
-h2.th-only,h2.en-only,
-h3.th-only,h3.en-only{display:block;}
+/* When EN active: swap visibility */
+[data-lang="EN"] .en-only   { display: block !important; }
+[data-lang="EN"] .en-inline { display: inline !important; }
+[data-lang="EN"] .th-only   { display: none !important; }
+[data-lang="EN"] .th-inline { display: none !important; }
+
+/* When TH active: ensure TH shows */
+[data-lang="TH"] .en-only   { display: none !important; }
+[data-lang="TH"] .en-inline { display: none !important; }
+[data-lang="TH"] .th-only   { display: block !important; }
+[data-lang="TH"] .th-inline { display: inline !important; }
+
+/* Correct display types for specific elements */
+[data-lang="EN"] a.en-only, [data-lang="TH"] a.th-only { display: inline-block !important; }
+[data-lang="EN"] span.en-only, [data-lang="TH"] span.th-only,
+[data-lang="EN"] span.en-inline, [data-lang="TH"] span.th-inline { display: inline !important; }
+[data-lang="EN"] li.en-only, [data-lang="TH"] li.th-only { display: list-item !important; }
 
 /* ══ KEYFRAMES ══ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
@@ -1148,12 +1162,6 @@ function setLang(lang) {
   if (btnEN) btnEN.classList.toggle('active', lang === 'EN');
   localStorage.setItem('aida_vault_lang', lang);
 }
-// Apply saved lang before paint
-(function(){
-  const saved = localStorage.getItem('aida_vault_lang') || 'TH';
-  document.documentElement.setAttribute('data-lang', saved);
-  document.documentElement.setAttribute('lang', saved === 'TH' ? 'th' : 'en');
-})();
 
 /* ══════════════════════════════════════
    REVEAL ON SCROLL
