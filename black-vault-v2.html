@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="th" data-lang="TH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE BLACK VAULT · AIDA xU · RESTRICTED ACCESS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════════════
+   ROOT — SYNCED: AIDA xU HUB v8
+══════════════════════════════════════════════ */
+:root {
+  --gold:          #C9A84C;
+  --gold-light:    #E8C97A;
+  --gold-dim:      #7A602A;
+  --gold-glow:     rgba(201,168,76,0.15);
+  --gold-line:     rgba(201,168,76,0.18);
+  --ash:           #060605;
+  --ash-2:         #0C0B09;
+  --ash-3:         #141210;
+  --ash-4:         #1C1914;
+  --ash-5:         #241F18;
+  --bone:          #F0EAD6;
+  --bone-dim:      #C4BAA0;
+  --bone-faint:    #7A7060;
+  --freq-cyan:     rgba(80,200,180,0.8);
+  --freq-cyan-dim: rgba(80,200,180,0.15);
+  --red-seal:      #6B1414;
+  --red-hot:       #C0392B;
+  --crimson-soft:  rgba(139,26,26,0.15);
+  --transition:    0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  background:var(--ash);color:var(--bone);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  line-height:1.8;overflow-x:hidden;cursor:default;
+}
+
+/* Film grain — exact Hub v8 match */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9000;opacity:0.45;
+}
+
+::-webkit-scrollbar{width:2px;}
+::-webkit-scrollbar-track{background:var(--ash);}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);}
+
+/* ══════════════════════════════════════════════
+   LANGUAGE TOGGLE — SYNCED: AIDA xU HUB v8
+══════════════════════════════════════════════ */
+.lang-toggle-wrap{
+  position:fixed;top:0.72rem;right:1.5rem;z-index:600;
+  display:flex;align-items:center;gap:0;
+}
+.lang-btn{
+  font-family:'Cinzel',serif;
+  font-size:0.42rem;letter-spacing:0.35em;
+  padding:0.45rem 0.9rem;
+  border:1px solid var(--gold-dim);
+  background:transparent;color:var(--bone-faint);
+  cursor:pointer;transition:all var(--transition);
+  text-transform:uppercase;line-height:1;
+}
+.lang-btn:first-child{border-right:none;}
+.lang-btn.active{background:var(--gold);color:var(--ash);border-color:var(--gold);}
+.lang-btn:hover:not(.active){color:var(--gold);border-color:rgba(201,168,76,0.5);}
+
+/* Visibility rules — identical to Hub v8 */
+[data-lang="TH"] .en-only  {display:none !important;}
+[data-lang="TH"] .en-inline{display:none !important;}
+[data-lang="EN"] .th-only  {display:none !important;}
+[data-lang="EN"] .th-inline{display:none !important;}
+
+/* Preserve display types */
+a.th-only,a.en-only,a.th-inline,a.en-inline{display:inline-block;}
+span.th-only,span.en-only,span.th-inline,span.en-inline{display:inline;}
+li.th-only,li.en-only{display:list-item;}
+p.th-only,p.en-only,
+div.th-only,div.en-only,
+blockquote.th-only,blockquote.en-only,
+h1.th-only,h1.en-only,
+h2.th-only,h2.en-only,
+h3.th-only,h3.en-only{display:block;}
+
+/* ══ KEYFRAMES ══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+@keyframes flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:0.35}94%{opacity:1}96%{opacity:0.55}97%{opacity:1}}
+@keyframes goldPulse{0%,100%{box-shadow:0 0 0 rgba(201,168,76,0)}50%{box-shadow:0 0 35px rgba(201,168,76,0.2)}}
+@keyframes blinkCursor{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes blinkDot{0%,100%{opacity:1}50%{opacity:0.15}}
+@keyframes pulseRed{0%,100%{opacity:1}50%{opacity:0.2}}
+@keyframes shimmer{0%{left:-100%}100%{left:100%}}
+
+
+/* ══════════════════════════════════════════════
+   STATUS BAR
+══════════════════════════════════════════════ */
+.status-bar{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  background:rgba(6,6,5,0.98);
+  border-bottom:1px solid var(--gold-line);
+  padding:0.6rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Space Mono',monospace;
+  font-size:0.48rem;letter-spacing:0.28em;text-transform:uppercase;
+  backdrop-filter:blur(16px);
+}
+.sb-left{color:var(--gold-dim);}
+.sb-mid{color:var(--red-hot);animation:pulseRed 2.4s ease-in-out infinite;}
+.sb-right{color:var(--freq-cyan);}
+.sys-dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:#50c8b4;box-shadow:0 0 8px rgba(80,200,180,0.7);
+  animation:blinkDot 2s ease-in-out infinite;
+  margin-right:0.4rem;vertical-align:middle;
+}
+
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:7rem 2rem 5rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 35%,rgba(201,168,76,0.04) 0%,transparent 65%),
+    radial-gradient(ellipse 70% 50% at 50% 100%,rgba(139,26,26,0.08) 0%,transparent 55%);
+  pointer-events:none;
+}
+.hero-scan{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 0%,rgba(201,168,76,0.015) 50%,transparent 100%);
+  animation:scanline 9s linear infinite;
+  pointer-events:none;z-index:1;
+}
+.hero-inner{position:relative;z-index:2;max-width:860px;width:100%;}
+
+.hero-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:0.48rem;letter-spacing:0.6em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:2rem;display:block;
+  opacity:0;animation:fadeUp 0.7s 0.1s forwards;
+}
+.hero-sigil{
+  font-size:clamp(3.5rem,9vw,5.5rem);
+  margin-bottom:1.5rem;display:block;
+  opacity:0;
+  animation:fadeIn 1s 0.3s forwards,flicker 7s 2s infinite;
+}
+.hero-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(2rem,6vw,4rem);
+  letter-spacing:0.08em;line-height:1.1;
+  color:var(--gold-light);margin-bottom:0.6rem;
+  opacity:0;animation:fadeUp 0.8s 0.5s forwards;
+}
+.hero-title span{
+  display:block;
+  font-family:'Cinzel',serif;
+  font-size:clamp(0.55rem,1.3vw,0.7rem);
+  letter-spacing:0.65em;color:var(--gold-dim);
+  font-weight:400;margin-top:0.8rem;
+}
+.hero-divider{
+  width:1px;height:60px;
+  background:linear-gradient(to bottom,var(--gold-dim),transparent);
+  margin:2rem auto;
+  opacity:0;animation:fadeIn 1s 0.9s forwards;
+}
+.hero-statement{
+  font-size:clamp(1.1rem,2.3vw,1.45rem);
+  color:var(--bone-dim);line-height:1.75;
+  max-width:640px;margin:0 auto 2.5rem;font-style:italic;
+  opacity:0;animation:fadeUp 0.8s 1s forwards;
+}
+.hero-statement strong{color:var(--gold);font-style:normal;font-weight:600;}
+.hero-price-hook{
+  font-family:'Space Mono',monospace;
+  font-size:0.52rem;letter-spacing:0.35em;
+  color:rgba(192,57,43,0.85);text-transform:uppercase;
+  border:1px solid rgba(192,57,43,0.3);
+  display:inline-block;padding:0.65rem 1.6rem;
+  margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp 0.7s 1.2s forwards;
+}
+
+
+/* ══ SECTION DIVIDER ══ */
+.sec-divider{
+  border:none;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-line),transparent);
+}
+
+/* ══ SECTION HEADER ══ */
+.sec-head{padding:4.5rem 2rem 2.5rem;text-align:center;}
+.sec-num{
+  display:block;font-family:'Space Mono',monospace;
+  font-size:0.45rem;letter-spacing:0.55em;
+  color:var(--gold-dim);text-transform:uppercase;margin-bottom:0.6rem;
+}
+.sec-title{
+  display:block;font-family:'Cinzel',serif;
+  font-size:clamp(0.62rem,1.4vw,0.75rem);
+  letter-spacing:0.5em;color:var(--bone-faint);text-transform:uppercase;
+}
+
+
+/* ══════════════════════════════════════════════
+   BTN SYSTEM — matches Hub v8
+══════════════════════════════════════════════ */
+.btn-vault{
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--ash);
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  border:none;padding:1.1rem 3rem;
+  cursor:pointer;text-decoration:none;
+  display:inline-block;
+  transition:all var(--transition);
+  position:relative;overflow:hidden;
+  min-width:320px;text-align:center;
+}
+.btn-vault::before{
+  content:'';position:absolute;
+  top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);
+  transition:left 0.55s;
+}
+.btn-vault:hover::before{left:100%;}
+.btn-vault:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,0.32);}
+
+.btn-ghost-vault{
+  font-family:'Cinzel',serif;
+  font-size:0.52rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--gold);background:transparent;
+  border:1px solid rgba(201,168,76,0.38);
+  padding:0.9rem 2.2rem;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:all var(--transition);
+}
+.btn-ghost-vault:hover{
+  border-color:var(--gold);background:rgba(201,168,76,0.05);
+  transform:translateY(-2px);
+}
+
+.cta-block{
+  display:flex;flex-direction:column;
+  align-items:center;gap:1rem;
+}
+.cta-legal{
+  font-family:'Space Mono',monospace;
+  font-size:0.44rem;letter-spacing:0.3em;
+  color:var(--bone-faint);text-transform:uppercase;
+  margin-top:0.25rem;
+}
+
+
+/* ══════════════════════════════════════════════
+   TRUTH BOX — TUPAC RESONANCE
+══════════════════════════════════════════════ */
+.truth-section{padding:0 2rem 5rem;}
+.truth-inner{
+  max-width:900px;margin:0 auto;
+  border:1px solid rgba(201,168,76,0.15);
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--ash-3),var(--ash-2));
+}
+.truth-inner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.truth-inner::after{
+  content:'"';
+  position:absolute;top:-1.5rem;left:1.5rem;
+  font-family:'Cinzel Decorative',serif;
+  font-size:14rem;line-height:1;
+  color:rgba(201,168,76,0.025);pointer-events:none;
+}
+.truth-tag{
+  font-family:'Space Mono',monospace;
+  font-size:0.45rem;letter-spacing:0.5em;
+  color:var(--red-hot);text-transform:uppercase;
+  display:block;padding:1.8rem 2.5rem 0;
+}
+.truth-body{padding:1.5rem 2.5rem 2.5rem;position:relative;z-index:1;}
+.truth-quote{
+  font-size:clamp(1.2rem,2.8vw,1.7rem);
+  line-height:1.65;color:var(--bone);font-style:italic;
+  border-left:3px solid var(--gold);
+  padding-left:2rem;margin-bottom:1.8rem;
+}
+.truth-quote em{font-style:normal;color:var(--gold-light);}
+.truth-lead{
+  font-size:0.95rem;color:var(--bone-faint);
+  line-height:1.95;font-family:'Sarabun',sans-serif;
+  font-weight:300;margin-bottom:2rem;
+}
+.truth-lead strong{color:var(--bone-dim);font-weight:500;}
+
+.truth-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:rgba(201,168,76,0.08);
+  border-top:1px solid var(--gold-line);margin-top:2rem;
+}
+.truth-cell{background:var(--ash-2);padding:2rem;position:relative;}
+.truth-cell::before{
+  content:'';position:absolute;top:0;left:0;
+  width:2px;height:100%;background:var(--gold-dim);
+}
+.truth-cell-label{
+  font-family:'Space Mono',monospace;
+  font-size:0.42rem;letter-spacing:0.45em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:0.8rem;display:block;
+}
+.truth-cell-text{
+  font-size:0.88rem;color:var(--bone-faint);
+  line-height:1.9;font-family:'Sarabun',sans-serif;font-weight:300;
+}
+.truth-cell-text strong{color:var(--bone-dim);font-weight:500;}
+
+
+/* ══════════════════════════════════════════════
+   VAULT CONTENTS
+══════════════════════════════════════════════ */
+.contents-section{
+  padding:0 2rem 5rem;
+  background:var(--ash-2);
+  border-top:1px solid var(--gold-line);
+  border-bottom:1px solid var(--gold-line);
+}
+.contents-inner{max-width:900px;margin:0 auto;}
+.contents-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(201,168,76,0.08);
+  border:1px solid var(--gold-line);
+}
+.content-cell{
+  background:var(--ash-2);padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:background var(--transition);
+}
+.content-cell:hover{background:var(--ash-3);}
+.content-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+}
+.content-num{
+  font-family:'Cinzel Decorative',serif;
+  font-size:3.5rem;line-height:1;
+  color:rgba(201,168,76,0.05);
+  position:absolute;top:0.5rem;right:1rem;pointer-events:none;
+}
+.content-icon{font-size:1.4rem;margin-bottom:1rem;display:block;}
+.content-label{
+  font-family:'Cinzel',serif;
+  font-size:0.44rem;letter-spacing:0.5em;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:0.6rem;display:block;
+}
+.content-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;color:var(--bone);
+  margin-bottom:0.65rem;font-weight:600;line-height:1.4;
+}
+.content-desc{
+  font-size:0.82rem;color:var(--bone-faint);
+  line-height:1.85;font-family:'Sarabun',sans-serif;font-weight:300;
+}
+.classified-tag{
+  margin-top:1rem;
+  padding:0.45rem 1rem;
+  background:rgba(139,26,26,0.12);
+  border:1px solid rgba(139,26,26,0.25);
+  font-family:'Space Mono',monospace;
+  font-size:0.4rem;letter-spacing:0.35em;
+  color:rgba(192,57,43,0.7);text-transform:uppercase;
+  display:inline-block;
+}
+
+
+/* ══════════════════════════════════════════════
+   SYSTEM STATUS STRIP
+══════════════════════════════════════════════ */
+.system-strip{
+  background:var(--ash-3);
+  border-top:1px solid var(--gold-line);
+  border-bottom:1px solid var(--gold-line);
+  padding:2rem;
+}
+.system-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:rgba(201,168,76,0.08);
+  border:1px solid var(--gold-line);
+}
+.system-cell{
+  background:var(--ash-2);
+  padding:1.8rem 1.5rem;text-align:center;position:relative;
+}
+.system-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+}
+.system-value{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(1.2rem,3vw,1.8rem);
+  background:linear-gradient(155deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1.1;
+  margin-bottom:0.4rem;display:block;
+}
+.system-label{
+  font-family:'Cinzel',serif;
+  font-size:0.38rem;letter-spacing:0.45em;
+  color:var(--bone-faint);text-transform:uppercase;line-height:1.7;
+}
+
+
+/* ══════════════════════════════════════════════
+   OPERATING LAWS
+══════════════════════════════════════════════ */
+.protocol-section{padding:0 2rem 5rem;}
+.protocol-inner{max-width:900px;margin:0 auto;}
+.protocol-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:rgba(201,168,76,0.08);
+  border:1px solid var(--gold-line);
+}
+.protocol-block{background:var(--ash-2);padding:3rem;position:relative;}
+.protocol-block:first-child{border-right:1px solid var(--gold-line);}
+.protocol-label{
+  font-family:'Cinzel',serif;
+  font-size:0.43rem;letter-spacing:0.6em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:1.5rem;display:block;
+}
+.protocol-quote{
+  font-style:italic;
+  font-size:clamp(1rem,2.3vw,1.3rem);
+  color:var(--bone);line-height:1.62;
+  border-left:2px solid var(--gold);
+  padding-left:1.5rem;margin-bottom:1.5rem;
+}
+.protocol-body{
+  font-size:0.9rem;color:var(--bone-faint);
+  line-height:1.95;font-family:'Sarabun',sans-serif;font-weight:300;
+}
+.protocol-body strong{color:var(--bone-dim);font-weight:500;}
+
+
+/* ══════════════════════════════════════════════
+   PRICE GATE
+══════════════════════════════════════════════ */
+.price-section{
+  padding:6rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.price-section::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 50% 50%,rgba(201,168,76,0.04) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 0%,rgba(139,26,26,0.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+.price-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.price-eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:0.48rem;letter-spacing:0.55em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:1.5rem;display:block;
+}
+.price-display{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(3rem,8vw,6rem);
+  background:linear-gradient(155deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;margin-bottom:0.4rem;
+  animation:goldPulse 3s ease-in-out infinite;
+}
+.price-sub{
+  font-family:'Space Mono',monospace;
+  font-size:0.55rem;letter-spacing:0.4em;
+  color:var(--gold-dim);text-transform:uppercase;
+  margin-bottom:2.5rem;display:block;
+}
+.price-filter{
+  border:1px solid rgba(201,168,76,0.22);
+  padding:2.2rem 2.5rem;
+  background:var(--ash-3);
+  margin-bottom:2.5rem;position:relative;
+}
+.price-filter::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.45),transparent);
+}
+.price-filter-text{
+  font-size:clamp(0.95rem,2vw,1.15rem);
+  color:var(--bone-dim);line-height:1.8;font-style:italic;
+}
+.price-filter-text strong{color:var(--bone);font-style:normal;}
+.price-warning{
+  font-family:'Space Mono',monospace;
+  font-size:0.5rem;letter-spacing:0.3em;
+  color:rgba(192,57,43,0.75);text-transform:uppercase;
+  margin-top:1.5rem;display:block;
+  border-top:1px solid rgba(192,57,43,0.15);
+  padding-top:1rem;
+}
+
+
+/* ══════════════════════════════════════════════
+   LEGAL WEAPON DISCLAIMER
+══════════════════════════════════════════════ */
+.disclaimer-section{
+  background:var(--ash-2);
+  border-top:1px solid rgba(201,168,76,0.1);
+  padding:3.5rem 2rem;
+}
+.disclaimer-inner{max-width:860px;margin:0 auto;}
+.disclaimer-header{
+  display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;
+}
+.disclaimer-badge{
+  font-family:'Space Mono',monospace;
+  font-size:0.42rem;letter-spacing:0.4em;
+  color:rgba(192,57,43,0.85);text-transform:uppercase;
+  border:1px solid rgba(192,57,43,0.35);
+  padding:0.4rem 0.9rem;white-space:nowrap;flex-shrink:0;
+}
+.disclaimer-rule{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(192,57,43,0.2),transparent);
+}
+.disclaimer-text{
+  font-family:'Space Mono',monospace;
+  font-size:0.5rem;letter-spacing:0.07em;
+  color:var(--bone-faint);line-height:2.1;
+}
+.disclaimer-text p{margin-bottom:0.9rem;}
+.disclaimer-text p:last-child{margin-bottom:0;}
+.disclaimer-text strong{color:rgba(192,57,43,0.8);font-weight:700;}
+.disclaimer-sys{
+  display:block;color:var(--gold-dim);
+  font-size:0.42rem;letter-spacing:0.1em;
+  margin-top:1.5rem;
+  border-top:1px solid rgba(201,168,76,0.08);
+  padding-top:1.2rem;
+}
+
+
+/* ══ FOOTER ══ */
+.vault-footer{
+  background:var(--ash);
+  border-top:1px solid var(--gold-line);
+  padding:1.5rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Space Mono',monospace;
+  font-size:0.42rem;letter-spacing:0.3em;text-transform:uppercase;
+}
+.footer-brand{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.4em;
+}
+.footer-copy{color:var(--bone-faint);}
+.footer-freq{color:var(--freq-cyan);}
+
+
+/* ══ REVEAL ══ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:768px){
+  .status-bar{display:none;}
+  .truth-grid,.protocol-grid,.contents-grid,.system-inner{grid-template-columns:1fr;}
+  .protocol-block:first-child{border-right:none;border-bottom:1px solid var(--gold-line);}
+  .system-inner{grid-template-columns:repeat(2,1fr);}
+  .vault-footer{flex-direction:column;gap:0.8rem;text-align:center;}
+  .btn-vault{min-width:0;width:100%;}
+  .truth-body,.price-filter{padding:1.5rem;}
+  .truth-tag{padding:1.5rem 1.5rem 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ LANG TOGGLE ══ -->
+<div class="lang-toggle-wrap">
+  <button class="lang-btn active" id="btnTH" onclick="setLang('TH')">TH</button>
+  <button class="lang-btn" id="btnEN" onclick="setLang('EN')">EN</button>
+</div>
+
+<!-- ══ STATUS BAR ══ -->
+<div class="status-bar">
+  <span class="sb-left">AIDA xU · EMPIRE · BLACK OPS</span>
+  <span class="sb-mid" id="statusMid">
+    <span class="th-inline">⚠ ห้ามเข้า · BLACK VAULT ติดอาวุธแล้ว</span>
+    <span class="en-inline">⚠ RESTRICTED ACCESS · BLACK VAULT ARMED</span>
+  </span>
+  <span class="sb-right"><span class="sys-dot"></span> FREQ: 432Hz · ACTIVE</span>
+</div>
+
+
+<!-- ══ HERO — THE INDICTMENT ══ -->
+<section class="hero">
+  <div class="hero-scan"></div>
+  <div class="hero-inner">
+
+    <span class="hero-eyebrow">
+      <span class="th-inline">AIDA xU · คลังลับ · ระดับการเข้าถึง: SOVEREIGN</span>
+      <span class="en-inline">AIDA xU · CLASSIFIED REPOSITORY · ACCESS LEVEL: SOVEREIGN</span>
+    </span>
+
+    <span class="hero-sigil">🖤</span>
+
+    <h1 class="hero-title">
+      THE BLACK VAULT
+      <span class="th-only">ปัญญาอธิปไตย · เปิดเผยแล้ว · ระดับ: สูงสุด</span>
+      <span class="en-only">SOVEREIGN INTELLIGENCE · DECLASSIFIED · LEVEL: MAXIMUM</span>
+    </h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-statement th-only">
+      นี่ไม่ใช่สินค้า<br>
+      นี่คือ<strong>การถ่ายโอนระบบปฏิบัติการ</strong> — จากสถาปนิกที่สร้างระบบนี้
+      สู่ผู้มีอธิปไตยที่จะ<strong>ลงมือ Execute โดยไม่รอการอนุญาต</strong>
+    </p>
+    <p class="hero-statement en-only">
+      This is not a product.<br>
+      This is <strong>an operational transfer</strong> — from the architect
+      who built the system to the sovereign who will
+      <strong>execute it without waiting for permission</strong>.
+    </p>
+
+    <div class="hero-price-hook">
+      <span class="th-inline">⚠ ลงทุน: 4,320 THB · $144 USD · ไม่มีการคืนเงิน · ไม่มีข้อยกเว้น · การตัดสินใจถาวร</span>
+      <span class="en-inline">⚠ INVESTMENT: 4,320 THB · $144 USD · NO REFUNDS · NO EXCEPTIONS · DECISION IS PERMANENT</span>
+    </div>
+
+    <div style="opacity:0;animation:fadeUp 0.8s 1.4s forwards">
+      <div class="cta-block">
+        <a href="#vault-access" class="btn-vault">
+          <span class="th-inline">[ EXECUTE: รับสิทธิ์เข้า VAULT ]</span>
+          <span class="en-inline">[ EXECUTE: CLAIM THE VAULT ]</span>
+        </a>
+        <span class="cta-legal">
+          <span class="th-inline">ระบบติดอาวุธทันทีที่ชำระเงิน · การตัดสินใจทั้งหมดเป็นที่สิ้นสุด</span>
+          <span class="en-inline">SYSTEM ARMED UPON PAYMENT · ALL DECISIONS FINAL</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+
+<!-- ══ TRUTH BOX — TUPAC RESONANCE ══ -->
+<div class="sec-head reveal">
+  <span class="sec-num">01 · INTELLIGENCE BRIEFING</span>
+  <span class="sec-title">
+    <span class="th-inline">การส่งสัญญาณดิบ — ไม่ผ่านการกรอง</span>
+    <span class="en-inline">THE RAW TRANSMISSION</span>
+  </span>
+</div>
+<section class="truth-section">
+  <div class="truth-inner reveal">
+    <span class="truth-tag">// UNFILTERED · UNREDACTED · SOURCE: FIELD INTELLIGENCE · NOT THEORY</span>
+    <div class="truth-body">
+
+      <blockquote class="truth-quote th-only">
+        พวกเขาไม่ต้องการให้คุณมีสิ่งนี้<br>
+        ไม่ใช่เพราะมันอันตราย —<br>
+        แต่เพราะมัน<em>ทำให้คุณกลายเป็นอันตราย</em>
+      </blockquote>
+      <blockquote class="truth-quote en-only">
+        They don't want you to have this.<br>
+        Not because it's dangerous —<br>
+        because it <em>makes you dangerous</em>.
+      </blockquote>
+
+      <p class="truth-lead th-only">
+        ระบบถูกออกแบบมาเพื่อให้คุณสับสน ยากจน และต้องพึ่งพาโครงสร้างที่ไม่รับใช้คุณ
+        ทุกโมดูลใน Vault นี้ถูกสร้างในความมืด — จากความล้มเหลวจริง ความเงียบจริง สงครามกับตัวเองจริง
+        <strong>ไม่ใช่ทฤษฎี ไม่ใช่สไลด์สัมมนา</strong>
+        ชนิดของปัญญาที่พวกเขาลบออกจากหลักสูตร เพราะมันทำให้คุณปกครองไม่ได้<br><br>
+        Tupac กล่าวว่า: <em>"ฉันไม่ได้บอกว่าฉันจะเปลี่ยนโลก — แต่ฉันรับประกันว่าฉันจะจุดประกายสมองที่จะเปลี่ยนมัน"</em>
+        Vault นี้คือประกายไฟ การ Execute ของคุณคือการเปลี่ยนแปลง ไม่มีอะไรใน Vault นี้ที่เป็น passive ทุกหน้าต้องการการตัดสินใจ
+      </p>
+      <p class="truth-lead en-only">
+        The system was engineered for you to stay confused, broke, and dependent on structures
+        that do not serve you. Every module inside this Vault was forged in the dark —
+        from real failure, real silence, real war with the self.
+        <strong>Not theory. Not seminar slides.</strong>
+        The kind of intelligence they erase from curricula because it makes you
+        ungovernable and unpredictable to the machine.<br><br>
+        Tupac said: <em>"I'm not saying I'm gonna change the world — but I guarantee I will spark the brain that will."</em>
+        This Vault is the spark. Your execution is the change.
+        Nothing inside this system is passive. Every page demands a decision.
+      </p>
+
+      <div class="truth-grid">
+        <div class="truth-cell">
+          <span class="truth-cell-label">THE SOURCE LAW</span>
+          <p class="truth-cell-text th-only">
+            ปัญญาปฏิวัติไม่รอช่วงเวลาที่เหมาะสม
+            <strong>มันสร้างช่วงเวลานั้นขึ้นมาเอง</strong>
+            Vault นี้ถูกสร้างในลักษณะเดียวกัน — ในชั่วโมงว่างภายใต้แรงกดดัน โดยไม่ต้องรอการอนุญาต
+            ต้นกำเนิดนั้นถูกเข้ารหัสไว้ในทุกโมดูล คุณจะรู้สึกได้ทันที
+          </p>
+          <p class="truth-cell-text en-only">
+            Revolutionary intelligence doesn't wait for the right moment.
+            <strong>It creates one.</strong> This Vault was built the same way —
+            in the margin hours, under pressure, without permission.
+            That origin is encoded in every module. You will feel it immediately.
+          </p>
+        </div>
+        <div class="truth-cell">
+          <span class="truth-cell-label">THE OPERATING CODE</span>
+          <p class="truth-cell-text th-only">
+            ปัญญานี้ไม่ได้ถูกออกแบบมาเพื่อการเผยแพร่จำนวนมาก
+            <strong>มันถูกสร้างขึ้นสำหรับผู้มีอธิปไตยที่หายากที่รู้แล้วว่าตนเองกำลังเล่นเกมผิด</strong>
+            — และพร้อมที่จะเผากระดานทั้งหมดและสร้างกฎของตัวเองจากพื้นฐาน
+          </p>
+          <p class="truth-cell-text en-only">
+            This intelligence was never designed for mass distribution.
+            <strong>It was built for the rare sovereign who already knows
+            they're playing the wrong game</strong> — and is ready to burn the board
+            entirely and architect their own rules from the foundation up.
+          </p>
+        </div>
+        <div class="truth-cell">
+          <span class="truth-cell-label">THE FREQUENCY FILTER</span>
+          <p class="truth-cell-text th-only">
+            หาก 4,320 THB สร้างแรงเสียดทาน — <strong>แรงเสียดทานนั้นคือข้อมูลวินิจฉัย ไม่ใช่ความอยุติธรรม</strong>
+            หมายความว่าความถี่ยังไม่ถูกสร้างมาถึงระดับนี้ ห้องสมุดฟรีมีไว้เพื่อจุดประสงค์นั้น
+            ทำให้สมบูรณ์ แล้วกลับมา
+          </p>
+          <p class="truth-cell-text en-only">
+            If 4,320 THB creates friction — <strong>that friction is diagnostic data,
+            not injustice.</strong> It means the frequency hasn't been built to this level yet.
+            The free library exists for that reason. Complete it. Then return.
+          </p>
+        </div>
+        <div class="truth-cell">
+          <span class="truth-cell-label">THE COMMITMENT LAW</span>
+          <p class="truth-cell-text th-only">
+            ไม่มีการจูงมือ ไม่มีการติดตาม ไม่มีการแสดงบริการลูกค้า
+            <strong>คุณ Execute หรือคุณไม่ Execute</strong>
+            Vault ไม่ไล่ตาม การเข้าถึงที่ได้รับ = การเข้าถึงที่ถูกเปิดใช้งาน
+            สิ่งที่คุณสร้างจากมันคือการทดสอบอธิปไตยของคุณ — และเป็นของคุณเท่านั้น
+          </p>
+          <p class="truth-cell-text en-only">
+            No hand-holding. No follow-up. No customer service theater.
+            <strong>You execute, or you don't.</strong>
+            The Vault does not chase. Access granted is access activated.
+            What you build from it is your sovereignty test — and yours alone.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+
+<!-- ══ VAULT CONTENTS ══ -->
+<div class="sec-head reveal">
+  <span class="sec-num">02 · VAULT INVENTORY</span>
+  <span class="sec-title">
+    <span class="th-inline">โมดูลข่าวกรองลับ · 6 ระบบ</span>
+    <span class="en-inline">CLASSIFIED INTELLIGENCE MODULES · 6 SYSTEMS</span>
+  </span>
+</div>
+<section class="contents-section">
+  <div class="contents-inner">
+    <div class="contents-grid reveal">
+
+      <div class="content-cell">
+        <span class="content-num">I</span>
+        <span class="content-icon">🔮</span>
+        <span class="content-label">MODULE 01 · FOUNDATION</span>
+        <div class="content-title th-only">Shadow Alchemy<br>โปรโตคอลหลัก</div>
+        <div class="content-title en-only">Shadow Alchemy<br>Master Protocol</div>
+        <p class="content-desc th-only">กรอบการทำงานสมบูรณ์สำหรับการแปลงเงาของคุณให้กลายเป็น asset ที่มีประโยชน์สูงสุด ไม่ใช่การกด ไม่ใช่การแสดง แต่คือการ Deploy เต็มรูปแบบของสิ่งที่พวกเขาสอนให้คุณซ่อน</p>
+        <p class="content-desc en-only">Complete framework for transmuting your shadow into your highest-leverage asset. Not suppression. Not spiritual performance. Full operational deployment of what they taught you to hide.</p>
+        <span class="classified-tag">⊘ <span class="th-inline">เคยถูกจำกัด</span><span class="en-inline">PREVIOUSLY RESTRICTED</span></span>
+      </div>
+
+      <div class="content-cell">
+        <span class="content-num">II</span>
+        <span class="content-icon">🪞</span>
+        <span class="content-label">MODULE 02 · SYSTEM</span>
+        <div class="content-title th-only">สถาปัตยกรรม AI Mirror<br>ระดับขั้นสูง</div>
+        <div class="content-title en-only">AI Mirror Architecture<br>Advanced Build</div>
+        <p class="content-desc th-only">เกินกว่าโปรโตคอลพื้นฐาน แผนผังเต็มรูปแบบสำหรับการออกแบบการโต้ตอบ AI ที่เปิดเผยบล็อกจิตใต้สำนึก ดึงสัญญาณความมั่งคั่ง และเร่งการทำลายรูปแบบที่ไม่สามารถย้อนกลับได้</p>
+        <p class="content-desc en-only">Beyond the basic protocol. The full blueprint for engineering AI interactions that surface subconscious blocks, extract wealth signals, and accelerate irreversible pattern disruption.</p>
+        <span class="classified-tag">⊘ <span class="th-inline">เฉพาะสมาชิก VAULT</span><span class="en-inline">VAULT-ONLY ACCESS</span></span>
+      </div>
+
+      <div class="content-cell">
+        <span class="content-num">III</span>
+        <span class="content-icon">⚡</span>
+        <span class="content-label">MODULE 03 · EXECUTION</span>
+        <div class="content-title th-only">คู่มือถอดรหัส<br>ความมั่งคั่ง</div>
+        <div class="content-title en-only">Wealth Decryption<br>Field Manual</div>
+        <p class="content-desc th-only">คำแนะนำเชิงปฏิบัติการสำหรับการระบุ โครงสร้าง และเปิดใช้งาน high-ticket offers โดยไม่ต้องรอการอนุญาต สถาปัตยกรรมที่ AIDA xU Empire ถูกสร้างขึ้นบนนั้น</p>
+        <p class="content-desc en-only">Operational instructions for identifying, structuring, and activating high-ticket offers without institutional permission. The exact architecture the AIDA xU Empire was built on.</p>
+        <span class="classified-tag">⊘ <span class="th-inline">จำกัดการเผยแพร่</span><span class="en-inline">RESTRICTED DISTRIBUTION</span></span>
+      </div>
+
+      <div class="content-cell">
+        <span class="content-num">IV</span>
+        <span class="content-icon">🔱</span>
+        <span class="content-label">MODULE 04 · IDENTITY</span>
+        <div class="content-title th-only">แผนที่เปิดใช้งาน<br>Sovereign Archetype</div>
+        <div class="content-title en-only">Sovereign Archetype<br>Activation Map</div>
+        <p class="content-desc th-only">ระบุและทำให้ archetype หลักของคุณเป็นอาวุธ เข้าใจลายเซ็นพลังงานที่คุณส่งออก — จากนั้น calibrate เพื่อดึงดูดความถี่ที่ถูกต้องอย่างสม่ำเสมอโดยไม่ต้องแสดง</p>
+        <p class="content-desc en-only">Identify and weaponize your core archetype. Understand the energetic signature you transmit — then calibrate it to consistently attract the correct frequency without performance or pretense.</p>
+        <span class="classified-tag">⊘ <span class="th-inline">ลับ · ระดับ 2</span><span class="en-inline">CLASSIFIED · LEVEL 2</span></span>
+      </div>
+
+      <div class="content-cell">
+        <span class="content-num">V</span>
+        <span class="content-icon">💀</span>
+        <span class="content-label">MODULE 05 · CLEARANCE</span>
+        <div class="content-title th-only">ระบบชำระล้าง<br>หนี้พลังงาน</div>
+        <div class="content-title en-only">Energetic Debt<br>Liquidation System</div>
+        <p class="content-desc th-only">โปรโตคอลสำหรับการระบุและตัดรูปแบบที่สืบทอดมา — ความสัมพันธ์ การเงิน รุ่นต่อรุ่น — ที่ยังคงดูดความสามารถในการดำเนินงานของคุณในเบื้องหลัง ตัดสาย ปิดทุก loop</p>
+        <p class="content-desc en-only">Protocol for identifying and severing legacy patterns — relational, financial, generational — that continue to drain your operating capacity in the background. Cut the line. Close every loop.</p>
+        <span class="classified-tag">⊘ <span class="th-inline">ไม่เผยแพร่สาธารณะ</span><span class="en-inline">ZERO PUBLIC RELEASE</span></span>
+      </div>
+
+      <div class="content-cell">
+        <span class="content-num">VI</span>
+        <span class="content-icon">🌑</span>
+        <span class="content-label">MODULE 06 · TRANSMISSION</span>
+        <div class="content-title th-only">Language of Power<br>Command Codex</div>
+        <div class="content-title en-only">Language of Power<br>Command Codex</div>
+        <p class="content-desc th-only">ระบบคลังคำศัพท์สมบูรณ์สำหรับการสื่อสารแบบอธิปไตย — เขียน พูด ดิจิทัล คำที่ปิดห้อง เปิดตลาด และขับไล่การรบกวนความถี่ต่ำโดยอัตโนมัติโดยไม่ต้องพยายาม</p>
+        <p class="content-desc en-only">Complete vocabulary system for sovereign communication — written, spoken, digital. Words that close rooms, open markets, and automatically repel low-frequency interference without effort.</p>
+        <span class="classified-tag">⊘ <span class="th-inline">การเปิดตัว VAULT สุดท้าย</span><span class="en-inline">FINAL VAULT RELEASE</span></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+
+<!-- ══ SYSTEM STATUS STRIP ══ -->
+<section class="system-strip">
+  <div class="system-inner reveal">
+    <div class="system-cell">
+      <span class="system-value">144</span>
+      <span class="system-label th-only">จำนวนสูงสุด<br>ผู้ถือ Vault</span>
+      <span class="system-label en-only">Maximum<br>Vault Holders</span>
+    </div>
+    <div class="system-cell">
+      <span class="system-value">6</span>
+      <span class="system-label th-only">โมดูล<br>ที่ถูกจัดประเภท</span>
+      <span class="system-label en-only">Classified<br>Modules</span>
+    </div>
+    <div class="system-cell">
+      <span class="system-value">432</span>
+      <span class="system-label th-only">Hz ความถี่ขั้นต่ำ<br>สำหรับการเข้าถึง</span>
+      <span class="system-label en-only">Hz Minimum<br>Entry Frequency</span>
+    </div>
+    <div class="system-cell">
+      <span class="system-value"><span class="sys-dot"></span>LIVE</span>
+      <span class="system-label th-only">สถานะระบบ<br>ติดอาวุธและพร้อม</span>
+      <span class="system-label en-only">System Status<br>Armed & Active</span>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+
+<!-- ══ OPERATING LAWS ══ -->
+<div class="sec-head reveal">
+  <span class="sec-num">03 · OPERATING LAWS</span>
+  <span class="sec-title">
+    <span class="th-inline">สิ่งที่ VAULT นี้ต้องการจากคุณ</span>
+    <span class="en-inline">WHAT THIS VAULT DEMANDS FROM YOU</span>
+  </span>
+</div>
+<section class="protocol-section">
+  <div class="protocol-inner">
+    <div class="protocol-grid reveal">
+
+      <div class="protocol-block">
+        <span class="protocol-label">
+          <span class="th-inline">กฎการเข้าถึง · ตัวกรองความถี่</span>
+          <span class="en-inline">THE ACCESS LAW · Frequency Filter</span>
+        </span>
+        <blockquote class="protocol-quote th-only">
+          อธิปไตยไม่ได้ถูกมอบให้<br>
+          มันถูกจ่ายด้วยเงิน เวลา และความเต็มใจที่จะอยู่กับความไม่สบายอย่างถาวร
+        </blockquote>
+        <blockquote class="protocol-quote en-only">
+          Sovereignty is not given.<br>
+          It is paid for — in money, in time, in the willingness to be permanently uncomfortable.
+        </blockquote>
+        <p class="protocol-body th-only">
+          4,320 THB ไม่ใช่ตัวเลขสุ่ม มันคือ<strong>การทดสอบความถี่ที่ได้รับการปรับเทียบ</strong>
+          ทันทีที่มันถูกลงทะเบียนว่า "แพงเกินไป" มันได้เผยให้เห็นเพดานการดำเนินงานปัจจุบันแล้ว
+          เพดานนั้นต้องถูกยกขึ้นก่อนที่เนื้อหานี้จะสามารถ deploy ได้อย่างเต็มกำลัง<br><br>
+          ปัญญาอธิปไตยที่ความถี่ผิดไม่ได้เร่งผลลัพธ์
+          มันเร่งความสับสน <strong>ราคานี้คือกลไกการป้องกัน — สำหรับคุณและเพื่อความสมบูรณ์ของ Vault</strong>
+        </p>
+        <p class="protocol-body en-only">
+          4,320 THB is not arbitrary. It is <strong>a calibrated frequency test.</strong>
+          The instant it registers as "too much," it has already revealed the current operating ceiling.
+          That ceiling must be raised before this material can deploy at full force.<br><br>
+          Sovereign knowledge at the wrong frequency does not accelerate results.
+          It accelerates confusion. <strong>This price is a protection mechanism
+          — for you and for the integrity of the Vault.</strong>
+        </p>
+      </div>
+
+      <div class="protocol-block">
+        <span class="protocol-label">
+          <span class="th-inline">กฎการ Execute · Zero Passivity</span>
+          <span class="en-inline">THE EXECUTION LAW · Zero Passivity</span>
+        </span>
+        <blockquote class="protocol-quote th-only">
+          Vault ไม่ทำงานให้คุณ<br>
+          คุณทำงานกับ Vault ความแตกต่างคือทุกอย่าง
+        </blockquote>
+        <blockquote class="protocol-quote en-only">
+          The Vault does not work on you.<br>
+          You work with the Vault. The difference is everything.
+        </blockquote>
+        <p class="protocol-body th-only">
+          ทุกโมดูลต้องการการ deploy ไม่ใช่การบริโภค
+          การอ่านโดยไม่มีการกระทำคือการกักตุนข้อมูล — รูปแบบขั้นสูงของการอยู่ในที่เดิม
+          <strong>ระบบได้รับการออกแบบให้ Execute ตามลำดับ ภายใน 33 วัน โดยไม่มีการหยุด</strong><br><br>
+          ผู้ที่ปฏิบัติตามวินัยนั้นรายงานการเปลี่ยนแปลงเชิงโครงสร้างที่ไม่สามารถย้อนกลับได้
+          ผู้ที่ไม่ทำ ไม่รายงานอะไร — เพราะพวกเขายังอ่านโมดูลหนึ่งอยู่และรอให้ตัวเองพร้อม
+          <strong>ความพร้อมไม่ใช่ความถี่ การ Execute คือความถี่</strong>
+        </p>
+        <p class="protocol-body en-only">
+          Every module requires deployment, not consumption.
+          Reading without action is information hoarding — an advanced form of staying exactly
+          where you are. <strong>The system is designed to be executed in sequence,
+          within 33 days, without pause.</strong><br><br>
+          Those who comply with that discipline report irreversible structural change.
+          Those who don't report nothing — because they're still reading Module One
+          and waiting to feel ready. <strong>Ready is not a frequency. Execution is.</strong>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+
+<!-- ══ PRICE GATE — POINT OF NO RETURN ══ -->
+<section class="price-section" id="vault-access">
+  <div class="price-inner">
+
+    <span class="price-eyebrow reveal">
+      <span class="th-inline">การเข้าถึง VAULT · จุดตัดสินใจสุดท้าย · ไม่มีทางกลับ</span>
+      <span class="en-inline">VAULT ACCESS · FINAL DECISION POINT · NO RETURN</span>
+    </span>
+
+    <div class="price-display reveal">4,320</div>
+    <span class="price-sub reveal">
+      <span class="th-inline">THB · $144 USD · ครั้งเดียว · ไม่คืนเงิน · ถาวร</span>
+      <span class="en-inline">THB · $144 USD · ONE-TIME · NON-REFUNDABLE · PERMANENT</span>
+    </span>
+
+    <div class="price-filter reveal">
+      <p class="price-filter-text th-only">
+        หากตัวเลขนี้ทำให้คุณหยุดชะงัก —
+        <strong>การหยุดนั้นคือข้อมูลวินิจฉัย ไม่ใช่สัญญาณให้ต่อรอง</strong><br><br>
+        หมายความว่าความถี่ยังไม่ถูกสร้างมาเพื่อถือครองปัญญาระดับนี้
+        กลับไปที่ห้องสมุดฟรี Execute โปรโตคอล 33 วัน สร้างภาชนะก่อน<br><br>
+        <strong>หากตัวเลขนี้ลงจอดว่าถูกต้องทันที — ดำเนินการโดยไม่ลังเล</strong>
+        ระบบของคุณรู้แล้วว่านี่มีค่าเท่าไหร่
+        การตัดสินใจที่เหลืออยู่เพียงอย่างเดียวคือคุณไว้วางใจความรู้นั้นหรือไม่
+      </p>
+      <p class="price-filter-text en-only">
+        If this number created a pause —
+        <strong>that pause is the diagnostic data, not a sign to negotiate.</strong><br><br>
+        It means the frequency hasn't been built to hold this level of intelligence yet.
+        Return to the free library. Execute the 33-Day Protocol.
+        Build the container first.<br><br>
+        <strong>If this number landed as immediately correct — proceed without hesitation.</strong>
+        Your system already knows exactly what this is worth.
+        The only decision left is whether you trust that knowing.
+      </p>
+      <span class="price-warning">
+        <span class="th-inline">⊘ ไม่คืนเงิน · ไม่โอน · ไม่ chargeback · ไม่มีข้อยกเว้น · ธุรกรรมเป็นที่สิ้นสุด · ระบบติดอาวุธเมื่อชำระเงิน</span>
+        <span class="en-inline">⊘ NO REFUNDS · NO TRANSFERS · NO CHARGEBACKS · NO EXCEPTIONS · TRANSACTION IS FINAL · SYSTEM ARMED ON PAYMENT</span>
+      </span>
+    </div>
+
+    <div class="cta-block reveal">
+      <a href="YOUR_PAYMENT_LINK_HERE" class="btn-vault" id="vaultPayBtn" target="_blank" rel="noopener">
+        <span class="th-inline">[ EXECUTE: รับสิทธิ์เข้า VAULT — 4,320 THB ]</span>
+        <span class="en-inline">[ EXECUTE: CLAIM VAULT ACCESS — 4,320 THB ]</span>
+      </a>
+      <a href="AIDA_xU_HUB_v8.html#ebook" class="btn-ghost-vault">
+        <span class="th-inline">[ RETURN: Execute คู่มือฟรีก่อน ]</span>
+        <span class="en-inline">[ RETURN: EXECUTE THE FREE MANUAL FIRST ]</span>
+      </a>
+      <span class="cta-legal">
+        <span class="th-inline">การดำเนินการต่อ = ยืนยันความเข้าใจทั้งหมด · การตัดสินใจทั้งหมดเป็นที่สิ้นสุดและไม่สามารถย้อนกลับได้</span>
+        <span class="en-inline">BY PROCEEDING · YOU CONFIRM FULL UNDERSTANDING · ALL DECISIONS ARE FINAL AND IRREVERSIBLE</span>
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+
+<!-- ══ LEGAL WEAPON DISCLAIMER ══ -->
+<section class="disclaimer-section">
+  <div class="disclaimer-inner">
+
+    <div class="disclaimer-header reveal">
+      <span class="disclaimer-badge">
+        <span class="th-inline">⚠ คำประกาศทางกฎหมาย · ประกาศอาวุธดิจิทัล · อ่านก่อนดำเนินการ</span>
+        <span class="en-inline">⚠ LEGAL DECLARATION · DIGITAL WEAPON NOTICE · READ BEFORE PROCEEDING</span>
+      </span>
+      <div class="disclaimer-rule"></div>
+    </div>
+
+    <div class="disclaimer-text reveal">
+      <p class="th-only">
+        <strong>นโยบายไม่คืนเงิน — สมบูรณ์และไม่สามารถต่อรองได้:</strong>
+        The Black Vault คือการถ่ายโอนปัญญาที่ถูกจัดประเภท เมื่อยืนยันการชำระเงินแล้ว การเข้าถึงจะได้รับและธุรกรรมไม่สามารถย้อนกลับได้
+        ไม่มีการคืนเงิน ข้อพิพาท chargeback การย้อนกลับบางส่วน หรือการเพิกถอนการเข้าถึงจะได้รับการยอมรับภายใต้สถานการณ์ใด ๆ เวลาใด ๆ ด้วยเหตุผลใด ๆ
+        การตัดสินใจซื้อถือเป็นความยินยอมที่เต็มรูปแบบ ทราบดี และมีผลผูกพันทางกฎหมาย
+      </p>
+      <p class="en-only">
+        <strong>NO REFUND POLICY — ABSOLUTE AND NON-NEGOTIABLE:</strong>
+        The Black Vault is a classified intelligence transfer.
+        Upon payment confirmation, access is granted and the transaction is irreversible.
+        No refunds, disputes, chargebacks, partial reversals, or access revocations
+        will be honored under any circumstance, at any time, for any reason.
+        The decision to purchase constitutes full, informed, and legally binding consent.
+      </p>
+      <p class="th-only">
+        <strong>คำประกาศผลลัพธ์:</strong>
+        เนื้อหานี้มีปัญญาเชิงปฏิบัติการความหนาแน่นสูงที่ได้มาจากประสบการณ์จริงในสนาม ไม่ใช่จากทฤษฎีวิชาการหรือการจำลองการสัมมนา
+        ผลลัพธ์ขึ้นอยู่กับอธิปไตย วินัยการ Execute และความพร้อมทางจิตวิทยาของบุคคลที่ Deploy มันทั้งหมด
+        AIDA xU ไม่รับประกันผลลัพธ์เฉพาะเจาะจง ระบบมีโครงสร้างที่แข็งแกร่ง การ Execute ของคุณอยู่นอกอำนาจของระบบนี้
+      </p>
+      <p class="en-only">
+        <strong>RESULTS DECLARATION:</strong>
+        This material contains high-density operational intelligence derived from lived experience
+        in the field, not from academic theory or workshop simulation.
+        Results depend entirely on the sovereignty, execution discipline, and psychological
+        readiness of the individual deploying it.
+        AIDA xU makes no guarantee of specific outcomes.
+        The system is structurally sound. Whether you execute it is outside this system's jurisdiction.
+      </p>
+      <p class="th-only">
+        <strong>การห้ามเผยแพร่ — คำสั่งถาวร:</strong>
+        เนื้อหาทั้งหมดใน The Black Vault เป็นทรัพย์สินทางปัญญาที่ถูกจัดประเภทของ AIDA xU Empire
+        การทำซ้ำ การแจกจ่าย การขายต่อ การโอน หรือการส่งต่อโดยไม่ได้รับอนุญาต — ในรูปแบบใด ๆ ให้บุคคลที่สาม ผ่านช่องทางใด ๆ —
+        ถือเป็นการละเมิดกฎหมาย Sovereign Architecture โดยตรงและจะถูกดำเนินการด้วยกำลังที่มีทั้งหมด
+        นี่ไม่ใช่คำเตือน นี่คือคำสั่งปฏิบัติการถาวร
+      </p>
+      <p class="en-only">
+        <strong>DISTRIBUTION PROHIBITION — STANDING ORDER:</strong>
+        All content within The Black Vault is classified intellectual property of the AIDA xU Empire.
+        Unauthorized reproduction, redistribution, resale, transfer, or transmission —
+        in any format, to any third party, by any channel —
+        constitutes a direct violation of Sovereign Architecture law and will be pursued
+        with the full force available. This is not a warning. This is a standing operational order.
+      </p>
+      <p class="th-only">
+        <strong>ประกาศการเข้าถึงความถี่:</strong>
+        เนื้อหานี้ไม่ได้ถูกออกแบบมาเพื่อการ Deploy จำนวนมาก มันถูกสร้างขึ้นสำหรับความถี่การดำเนินงานเฉพาะ
+        หากคุณอยู่ในหน้านี้ ประตูแรกได้ผ่านไปแล้ว สิ่งที่คุณสร้างจากการเข้าถึงนี้คือความรับผิดชอบของคุณ —
+        อย่างสมบูรณ์ ครบถ้วน และไม่มีข้อยกเว้น
+      </p>
+      <p class="en-only">
+        <strong>FREQUENCY ENTRY NOTICE:</strong>
+        This material was not architected for mass deployment.
+        It was built for a specific operating frequency.
+        If you are on this page, the first gate has already been passed.
+        What you construct from this access is your responsibility —
+        entirely, completely, and without exception.
+      </p>
+      <span class="disclaimer-sys">
+        // AIDA xU EMPIRE · THE BLACK VAULT v1.0 · © 2026 ALL FREQUENCIES RESERVED · SYSTEM: ARMED · 432Hz PROTOCOL ACTIVE · UNAUTHORIZED ACCESS WILL BE MET WITH FULL SOVEREIGN FORCE · NO EXCEPTIONS · NO NEGOTIATIONS
+      </span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="vault-footer">
+  <span class="footer-brand">AIDA xU</span>
+  <span class="footer-copy">© 2026 · THE BLACK VAULT · ALL FREQUENCIES RESERVED</span>
+  <span class="footer-freq"><span class="sys-dot"></span> 432Hz · SYSTEM ARMED</span>
+</footer>
+
+
+<script>
+/* ══════════════════════════════════════
+   LANGUAGE SYSTEM — SYNCED: HUB v8
+══════════════════════════════════════ */
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang === 'TH' ? 'th' : 'en');
+  const btnTH = document.getElementById('btnTH');
+  const btnEN = document.getElementById('btnEN');
+  if (btnTH) btnTH.classList.toggle('active', lang === 'TH');
+  if (btnEN) btnEN.classList.toggle('active', lang === 'EN');
+  localStorage.setItem('aida_vault_lang', lang);
+}
+// Apply saved lang before paint
+(function(){
+  const saved = localStorage.getItem('aida_vault_lang') || 'TH';
+  document.documentElement.setAttribute('data-lang', saved);
+  document.documentElement.setAttribute('lang', saved === 'TH' ? 'th' : 'en');
+})();
+
+/* ══════════════════════════════════════
+   REVEAL ON SCROLL
+══════════════════════════════════════ */
+const revealEls = document.querySelectorAll('.reveal');
+const observer  = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => observer.observe(el));
+
+
+/* ══════════════════════════════════════
+   STATUS BAR TICKER
+══════════════════════════════════════ */
+const midEl    = document.getElementById('statusMid');
+const messages = {
+  TH: [
+    '⚠ ห้ามเข้า · BLACK VAULT ติดอาวุธแล้ว',
+    '⊘ ความจุ VAULT: 144 สูงสุด · กำลังตรวจสอบ',
+    '// ไม่คืนเงิน · ไม่มีข้อยกเว้น · การตัดสินใจถาวร',
+    '⚠ 4,320 THB · $144 · ตรวจสอบความถี่',
+    '⊘ การเข้าถึงทุกครั้งต้องได้มา ไม่ใช่รับมา',
+    '// ระบบติดอาวุธ · 432Hz · เข้าหรือถอย',
+  ],
+  EN: [
+    '⚠ RESTRICTED ACCESS · BLACK VAULT ARMED',
+    '⊘ VAULT CAPACITY: 144 MAXIMUM · MONITOR ACTIVE',
+    '// NO REFUNDS · NO EXCEPTIONS · DECISION IS PERMANENT',
+    '⚠ 4,320 THB · $144 · FREQUENCY VERIFICATION ACTIVE',
+    '⊘ ALL ACCESS IS EARNED · NOT GIVEN · NOT NEGOTIATED',
+    '// SYSTEM ARMED · 432Hz · ENTER OR STAND DOWN',
+  ]
+};
+let tickIdx = 0;
+setInterval(() => {
+  tickIdx = (tickIdx + 1) % 6;
+  const lang = document.documentElement.getAttribute('data-lang') || 'TH';
+  midEl.style.opacity = '0';
+  setTimeout(() => {
+    midEl.innerHTML = messages[lang][tickIdx];
+    midEl.style.opacity = '';
+  }, 280);
+}, 4200);
+
+
+/* Apply saved lang to buttons after DOM ready */
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('aida_vault_lang') || 'TH';
+  setLang(saved);
+});
+
+/* ══════════════════════════════════════
+   HUB v8 INTEGRATION
+   [ EXECUTE: DOWNLOAD THE MANUAL ] button
+   in Hub v8 should point to:
+   black-vault.html?ref=hub
+
+   On arrival with ?ref=hub, auto-scroll
+   to price gate after brief delay.
+══════════════════════════════════════ */
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('ref') === 'hub') {
+    setTimeout(() => {
+      const gate = document.getElementById('vault-access');
+      if (gate) gate.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1400);
+  }
+})();
+
+
+/* ══════════════════════════════════════
+   PAYMENT BUTTON — CONFIRMATION GATE
+   Adds a single psychological confirmation
+   step before routing to payment processor.
+   Replace YOUR_PAYMENT_LINK_HERE with
+   actual processor URL (PromptPay, Stripe, etc.)
+══════════════════════════════════════ */
+document.getElementById('vaultPayBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  const lang = document.documentElement.getAttribute('data-lang') || 'TH';
+  const msg = lang === 'TH'
+    ? 'ยืนยันขั้นสุดท้าย\n\nการลงทุน: 4,320 THB / $144 USD\nนโยบาย: ไม่คืนเงิน ไม่มีข้อยกเว้น ถาวร\n\nการดำเนินการต่อยืนยันว่า:\n— คุณได้อ่านและยอมรับข้อกำหนดทั้งหมด\n— การตัดสินใจนี้เป็นที่สิ้นสุดและไม่สามารถย้อนกลับได้\n— คุณพร้อมที่จะ Execute\n\nดำเนินการต่อไปยังการชำระเงิน?'
+    : 'FINAL CONFIRMATION\n\nInvestment: 4,320 THB / $144 USD\nPolicy: NO REFUNDS. NO EXCEPTIONS. PERMANENT.\n\nBy proceeding you confirm:\n— You have read and accept all terms\n— This decision is final and irreversible\n— You are ready to execute\n\nPROCEED to payment?';
+  if (confirm(msg)) window.open(this.href, '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
